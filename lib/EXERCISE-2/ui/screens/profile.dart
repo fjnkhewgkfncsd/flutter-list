@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../main.dart';
 import '../theme/theme.dart';
+import '../../model/profile_tile_model.dart';
 
 class ProfileApp extends StatelessWidget {
   final ProfileData profile;
@@ -9,9 +9,9 @@ class ProfileApp extends StatelessWidget {
   List<Widget> buildTileList() {
     return profile.tiles.map((tile) {
         return ProfileTile(
-          icon: tile.icon.icon!,
+          icon: tile.icon,
           title: tile.title,
-          data: tile.data,
+          data: tile.value,
         );
       }).toList();
   }
@@ -34,7 +34,7 @@ class ProfileApp extends StatelessWidget {
             const SizedBox(height: 40),
             CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage(profile.imagePath),
+              backgroundImage: AssetImage(profile.avatarUrl),
             ),
             const SizedBox(height: 20),
             Text(
@@ -46,7 +46,7 @@ class ProfileApp extends StatelessWidget {
               ),
             ),
             Text(
-              profile.role,
+              profile.position,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,

@@ -27,6 +27,8 @@ class TempContainer extends StatefulWidget {
 class _TempContainerState extends State<TempContainer> {
 
   final InputDecoration inputDecoration = InputDecoration(
+    filled: true,
+    fillColor: Colors.white24,
     enabledBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: Colors.white, width: 1.0),
       borderRadius: BorderRadius.circular(12),
@@ -34,7 +36,7 @@ class _TempContainerState extends State<TempContainer> {
     hintText: 'Enter a temperature',
     hintStyle: const TextStyle(color: Colors.white),
   );
-  
+
   double? celsius;
 
   double get fahrenheit => (celsius != null) ? (celsius! * 9 / 5) + 32 : 0.0;

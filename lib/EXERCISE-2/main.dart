@@ -1,67 +1,42 @@
 import 'package:flutter/material.dart';
 
 import 'ui/screens/profile.dart';
-
-class ProfileData {
-  final String name;
-  final String role;
-  final String imagePath;
-  final List<TileDate> tiles;
-
-  const ProfileData({
-    required this.name,
-    required this.role,
-    required this.imagePath,
-    required this.tiles,
-  });
-} 
-
-class TileDate {
-  final Icon icon;
-  final String title;
-  final String data;
-
-  const TileDate({
-    required this.icon,
-    required this.title,
-    required this.data,
-  });
-}
+import 'model/profile_tile_model.dart';
 
 void main() {
-  const profile = ProfileData(
+  ProfileData profile = ProfileData(
     name: 'Ronan OGOR',
-    role: 'Flutter Developer',
-    imagePath: 'assets/ronan.jpg',
+    position: 'Flutter Developer',
+    avatarUrl: 'assets/ronan.jpg',
     tiles: [
-      TileDate(
-        icon: Icon(Icons.phone),
+      TileData(
+        icon: Icons.phone,
         title: "Phone Number",
-        data: "+123 456 7890",
+        value: "+123 456 7890",
       ),
-      TileDate(
-        icon: Icon(Icons.location_on),
+      TileData(
+        icon: Icons.location_on,
         title: "Address",
-        data: "Cambodia",
+        value: "Cambodia",
       ),
-      TileDate(
-        icon: Icon(Icons.email),
+      TileData(
+        icon: Icons.email,
         title: "Mail",
-        data: "ronan.ogogr@cadt.edu",
+        value: "ronan.ogogr@cadt.edu",
       ),
-      TileDate(
-        icon: Icon(Icons.language),
+      TileData(
+        icon: Icons.language,
         title: "Language",
-        data: "English",
+        value: "English",
       ),
-      TileDate(
-        icon: Icon(Icons.language),
+      TileData(
+        icon: Icons.language,
         title: "Language",
-        data: "Khmer",
+        value: "Khmer",
       ),
     ],
   );
-  runApp(const MaterialApp(
+  runApp( MaterialApp(
     debugShowCheckedModeBanner: false,
     home: ProfileApp(profile: profile),
   ));
